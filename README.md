@@ -5,8 +5,7 @@ And the output of this algorithm is the index words of each category.
 In this code, the approximate chi algorithm is simulated.
 The Chi algorithm scores the relevance of words and categories as follows using statistics to test the independence of two events.
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](https://www.thoughtco.com/thmb/qdhRNYCDTHsZk0b07td9AEe2nzk=/1071x346/filters:fill(auto,1)/chi-56b749505f9b5829f8380db4.gif)
+*CHi2 Score* : ![Alt Text](https://www.thoughtco.com/thmb/qdhRNYCDTHsZk0b07td9AEe2nzk=/1071x346/filters:fill(auto,1)/chi-56b749505f9b5829f8380db4.gif)
 
 
 The advantage of this method is that it eliminates general words between different categories and also
