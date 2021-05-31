@@ -35,7 +35,7 @@ def make_ngrams (df, n=1):
 
 
 
-def chi_square_procedur(n_gram_df, usable_words, min_count=7):
+def chi_square_procedur(n_gram_df,  min_count=7):
     
     word_freq_each_cat = n_gram_df.groupby('n_gram', 'category').count().sort\
         ('count', ascending=False).fillna(0).select('n_gram', 'category', 'count')
@@ -60,8 +60,7 @@ def chi_square_procedur(n_gram_df, usable_words, min_count=7):
         .withColumn("word_percentage_by_category", F.col("count")/F.sum("count")\
         .over(Window.partitionBy('n_gram'))).drop('count')
 
-    df = word_freq_each_cat.join(usable_words, ['n_gram','category'], how='inner')\
-        .join(category_words_count.select('cat_total_prob','category','categories_count'), ['category']).dropDuplicates()
+    df = word_freq_each_cat..join(category_words_count.select('cat_total_prob','category','categories_count'), ['category']).dropDuplicates()
 
     df = df.join(each_word_probability.select('n_gram','word_total_prob','total_count'), ['n_gram'])\
         .dropDuplicates().join(word_freq_percentage_each_cat, ['n_gram','category']).dropDuplicates()
